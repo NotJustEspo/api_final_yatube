@@ -45,3 +45,11 @@ python3 manage.py migrate
 ```
 python3 manage.py runserver
 ```
+
+## Примеры запросов к API:
+
+### Пример 1. POST-запрос на создание поста.
+
+```
+POST api/v1/posts/
+```
