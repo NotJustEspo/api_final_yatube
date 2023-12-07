@@ -52,3 +52,18 @@ python3 manage.py runserver
 
 ***POST api/v1/posts/***
 
+### Пример 2. PATCH-запрос на частичное обновление поста.
+
+***PATCH api/v1/posts/{id}***
+
+### Пример 3. GET-запрос на получение комментариев.
+
+***GET api/v1/posts/{post_id}/comments/***
+
+### Пример 4. DELETE-запрос на удаление комментария.
+
+***DELETE api/v1/posts/{post_id}/comments/{id}/***
+
+### Пример 5. GET-запрос на получение всех подписок пользователя.
+
+***GET api/v1/follow/***
