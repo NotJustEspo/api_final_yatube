@@ -51,3 +51,4 @@ python3 manage.py runserver
 ### Пример 1. POST-запрос на создание поста.
 
 ***POST api/v1/posts/***
+
