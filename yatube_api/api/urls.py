@@ -11,28 +11,27 @@ from api.views import (
 
 v1_router = DefaultRouter()
 v1_router.register(
-    r'v1/posts',
+    'posts',
     PostsViewSet,
     basename='posts'
 )
 v1_router.register(
-    r'v1/groups',
+    'groups',
     GroupViewSet,
     basename='groups'
 )
 v1_router.register(
-    r'v1/posts/(?P<post_id>\d+)/comments',
+    r'posts/(?P<post_id>\d+)/comments',
     CommentsViewSet,
     basename='comments'
 )
 v1_router.register(
-    r'v1/follow',
+    'follow',
     FollowViewSet,
     basename='follow'
 )
 
 urlpatterns = [
-    path('', include(v1_router.urls), name='api-root'),
-    path('v1/', include('djoser.urls')),
+    path('v1/', include(v1_router.urls), name='api-root'),
     path('v1/', include('djoser.urls.jwt')),
 ]
