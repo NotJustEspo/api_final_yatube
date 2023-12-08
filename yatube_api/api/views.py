@@ -1,5 +1,10 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import filters, permissions, viewsets
+from rest_framework import (
+    filters,
+    mixins,
+    permissions,
+    viewsets
+)
 from rest_framework.pagination import LimitOffsetPagination
 
 from api.permissions import IsAuthorOrReadOnly
@@ -17,9 +22,8 @@ from posts.models import (
 
 
 class PostsViewSet(viewsets.ModelViewSet):
-    """
-    Класс для работы с постами.
-    """
+    """Класс для работы с постами."""
+
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [
@@ -33,18 +37,16 @@ class PostsViewSet(viewsets.ModelViewSet):
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    Класс для работы с группами.
-    """
+    """Класс для работы с группами."""
+
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class CommentsViewSet(viewsets.ModelViewSet):
-    """
-    Класс для работы с комментами.
-    """
+    """Класс для работы с комментами."""
+
     serializer_class = CommentSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly,
@@ -63,16 +65,17 @@ class CommentsViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user, post=post)
 
 
-class FollowViewSet(viewsets.ModelViewSet):
-    """
-    Класс для работы с подписками.
-    """
+class FollowViewSet(viewsets.GenericViewSet,
+                    mixins.ListModelMixin,
+                    mixins.CreateModelMixin
+                    ):
+    """Класс для работы с подписками."""
+
     allowed_methods = ('GET', 'POST')
     queryset = Follow.objects.all()
     serializer_class = FollowSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [filters.SearchFilter]
-    filterset_fields = ('following',)
     search_fields = ('following__username',)
 
     def get_queryset(self):

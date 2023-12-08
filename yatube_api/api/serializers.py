@@ -59,11 +59,6 @@ class FollowSerializer(serializers.ModelSerializer):
         queryset=User.objects.all()
     )
 
-    def validate(self, data):
-        if data.get('following') == self.context['request'].user:
-            raise ValidationError('Нельзя подписаться на самого себя.')
-        return data
-
     class Meta:
         model = Follow
         exclude = ('id',)
@@ -74,3 +69,8 @@ class FollowSerializer(serializers.ModelSerializer):
                 message='Вы уже подписаны на этого автора.'
             ),
         ]
+
+    def validate(self, data):
+        if data.get('following') == self.context['request'].user:
+            raise ValidationError('Нельзя подписаться на самого себя.')
+        return data
