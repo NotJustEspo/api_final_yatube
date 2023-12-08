@@ -74,4 +74,4 @@ DELETE api/v1/posts/{post_id}/comments/{id}/
 
 GET api/v1/follow/
 
-## Информация о себе - [Github](https://github.com/NotJustEspo)
+## Информация об авторе - [Github](https://github.com/NotJustEspo)
