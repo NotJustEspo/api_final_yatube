@@ -73,3 +73,5 @@ DELETE api/v1/posts/{post_id}/comments/{id}/
 ### Пример 5. GET-запрос на получение всех подписок пользователя.
 
 GET api/v1/follow/
+
+## Информация о себе - [Github](https://github.com/NotJustEspo)
