@@ -12,9 +12,8 @@ from posts.models import (
 
 
 class PostSerializer(serializers.ModelSerializer):
-    """
-    Сериализатор постов.
-    """
+    """Сериализатор постов."""
+
     author = SlugRelatedField(
         slug_field='username',
         read_only=True
@@ -26,10 +25,9 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    """
-    Сериализатор комментов.
-    """
-    author = serializers.SlugRelatedField(
+    """Сериализатор комментов."""
+
+    author = SlugRelatedField(
         read_only=True,
         slug_field='username'
     )
@@ -41,24 +39,22 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
-    """
-    Сериализатор групп.
-    """
+    """Сериализатор групп."""
+
     class Meta:
         model = Group
         fields = '__all__'
 
 
 class FollowSerializer(serializers.ModelSerializer):
-    """
-    Сериализатор подписок.
-    """
-    user = serializers.SlugRelatedField(
+    """Сериализатор подписок."""
+
+    user = SlugRelatedField(
         read_only=True,
         slug_field='username',
         default=serializers.CurrentUserDefault()
     )
-    following = serializers.SlugRelatedField(
+    following = SlugRelatedField(
         slug_field='username',
         queryset=User.objects.all()
     )
