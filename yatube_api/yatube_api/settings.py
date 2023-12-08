@@ -17,10 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg',
     'rest_framework',
-    'django_filters',
     'djoser',
-    'api',
     'posts',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +77,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
