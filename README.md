@@ -74,11 +74,11 @@ DELETE api/v1/posts/{post_id}/comments/{id}/
 
 GET api/v1/follow/
 
-URL: http://localhost:8000/api/v1/follow/
+URL: http://localhost:8000/api/v1/follow/ (*)
 
 *Доступна только при запуске проекта на локальном сервере
 
-### [Документация для API](http://127.0.0.1:8000/redoc/)
+### [Документация для API](http://127.0.0.1:8000/redoc/) (*)
 *Доступна только при запуске проекта на локальном сервере
 
 ## Информация об авторе - [Github](https://github.com/NotJustEspo)
