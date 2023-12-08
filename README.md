@@ -76,4 +76,6 @@ GET api/v1/follow/
 
 URL: http://localhost:8000/api/v1/follow/
 
+### [Документация для API](http://127.0.0.1:8000/redoc/)
+
 ## Информация об авторе - [Github](https://github.com/NotJustEspo)
