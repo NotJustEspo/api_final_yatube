@@ -74,4 +74,6 @@ DELETE api/v1/posts/{post_id}/comments/{id}/
 
 GET api/v1/follow/
 
+URL: http://localhost:8000/api/v1/follow/
+
 ## Информация об авторе - [Github](https://github.com/NotJustEspo)
