@@ -71,7 +71,6 @@ class FollowViewSet(viewsets.GenericViewSet,
                     ):
     """Класс для работы с подписками."""
 
-    allowed_methods = ('GET', 'POST')
     queryset = Follow.objects.all()
     serializer_class = FollowSerializer
     permission_classes = [permissions.IsAuthenticated]
